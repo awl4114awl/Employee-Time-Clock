@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Employee Attendance</title>
+  <!-- Bootstrap CSS -->
+  <link href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" rel="stylesheet">
+  <style>
+    body {
+      font-family: Consolas, monospace;
+      background-color: #121212;
+      color: #e0e0e0;
+    }
+    .container {
+      max-width: 800px;
+      margin: 0 auto;
+      padding: 20px;
+    }
+    h1, h2 {
+      text-align: center;
+    }
+    .dark-mode .btn {
+      background-color: #444;
+      border-color: #444;
+    }
+    .dark-mode .btn:hover {
+      background-color: #222;
+      border-color: #222;
+    }
+    .card {
+      background-color: #343a40;
+      margin-bottom: 20px;
+      border: 1px solid #444;
+    }
+    .card-header, .card-body {
+      border-bottom: 1px solid #444;
+    }
+  </style>
+</head>
+<body class="dark-mode">
+  <%- include('header') %>
+  <div class="container">
+    <h1>Employee Attendance</h1>
+    <div id="employee-attendance">
+      <% employees.forEach(employee => { %>
+        <div class="card">
+          <div class="card-header">
+            <strong>Name:</strong> <%= employee.name %>
+          </div>
+          <div class="card-body">
+            <p><strong>Clock In:</strong> <%= employee.clockIn ? moment(employee.clockIn).tz('America/Los_Angeles').format('M/D/YYYY, h:mm:ss A') : 'N/A' %></p>
+            <p><strong>Start Break:</strong> <%= employee.startBreak ? moment(employee.startBreak).tz('America/Los_Angeles').format('M/D/YYYY, h:mm:ss A') : 'N/A' %></p>
+            <p><strong>End Break:</strong> <%= employee.endBreak ? moment(employee.endBreak).tz('America/Los_Angeles').format('M/D/YYYY, h:mm:ss A') : 'N/A' %></p>
+            <p><strong>Start Lunch:</strong> <%= employee.startLunch ? moment(employee.startLunch).tz('America/Los_Angeles').format('M/D/YYYY, h:mm:ss A') : 'N/A' %></p>
+            <p><strong>End Lunch:</strong> <%= employee.endLunch ? moment(employee.endLunch).tz('America/Los_Angeles').format('M/D/YYYY, h:mm:ss A') : 'N/A' %></p>
+            <p><strong>Clock Out:</strong> <%= employee.clockOut ? moment(employee.clockOut).tz('America/Los_Angeles').format('M/D/YYYY, h:mm:ss A') : 'N/A' %></p>
+          </div>
+        </div>
+      <% }); %>
+    </div>
+  </div>
+  <!-- Bootstrap JS and dependencies -->
+  <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.9.2/dist/umd/popper.min.js"></script>
+  <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+</body>
+</html>

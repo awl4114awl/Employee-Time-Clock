@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Time Clock</title>
+  <!-- Bootstrap CSS -->
+  <link href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" rel="stylesheet">
+  <style>
+    body {
+      font-family: Consolas, monospace;
+      background-color: #121212;
+      color: #e0e0e0;
+    }
+    .container {
+      max-width: 800px;
+      margin: 0 auto;
+      padding: 20px;
+    }
+    h1, h2 {
+      text-align: center;
+    }
+    .dark-mode .btn {
+      background-color: #444;
+      border-color: #444;
+    }
+    .dark-mode .btn:hover {
+      background-color: #222;
+      border-color: #222;
+    }
+    .card {
+      background-color: #343a40;
+      margin-bottom: 20px;
+      border: 1px solid #444;
+    }
+    .card-header, .card-body {
+      border-bottom: 1px solid #444;
+    }
+    .employee-card {
+      width: 80%;
+      margin: 10px auto;
+    }
+  </style>
+</head>
+<body class="dark-mode">
+  <%- include('header') %>
+  <div class="container">
+    <h1>Time Clock</h1>
+    <form action="/clockin" method="POST" class="mb-3">
+      <div class="form-group">
+        <input type="text" id="name" name="name" class="form-control" placeholder="Name" required>
+      </div>
+      <button type="submit" class="btn btn-primary btn-block">Clock In</button>
+    </form>
+    <form action="/startbreak" method="POST" class="mb-3">
+      <div class="form-group">
+        <input type="text" id="name" name="name" class="form-control" placeholder="Name" required>
+      </div>
+      <button type="submit" class="btn btn-secondary btn-block">Start Break</button>
+      </form>
+      <form action="/endbreak" method="POST" class="mb-3">
+        <div class="form-group">
+          <input type="text" id="name" name="name" class="form-control" placeholder="Name" required>
+        </div>
+        <button type="submit" class="btn btn-secondary btn-block">End Break</button>
+    </form>
+    <form action="/startlunch" method="POST" class="mb-3">
+      <div class="form-group">
+        <input type="text" id="name" name="name" class="form-control" placeholder="Name" required>
+      </div>
+      <button type="submit" class="btn btn-secondary btn-block">Start Lunch</button>
+    </form>
+    <form action="/endlunch" method="POST" class="mb-3">
+      <div class="form-group">
+        <input type="text" id="name" name="name" class="form-control" placeholder="Name" required>
+      </div>
+      <button type="submit" class="btn btn-secondary btn-block">End Lunch</button>
+    </form>
+    <form action="/clockout" method="POST" class="mb-3">
+      <div class="form-group">
+        <input type="text" id="name" name="name" class="form-control" placeholder="Name" required>
+      </div>
+      <button type="submit" class="btn btn-primary btn-block">Clock Out</button>
+    </form>
+  </div>
+  <!-- Bootstrap JS and dependencies -->
+  <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.9.2/dist/umd/popper.min.js"></script>
+  <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+</body>
+</html>
